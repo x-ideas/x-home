@@ -1,5 +1,5 @@
 {
-  "name": "home-index",
+  "name": "@xxx-home/index",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,6 +13,7 @@
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "@vercel/speed-insights": "^1.0.2",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0"

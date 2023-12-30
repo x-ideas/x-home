@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "name": "✨ x-home",
+      "path": "."
+    },
+    {
+      "name": "📦 @xxx-home/index",
+      "path": "packages/home-index"
+    }
+  ],
+  "settings": {
+    "eslint.codeActionsOnSave.mode": "problems",
+    "editor.formatOnSave": true
+  }
+}
