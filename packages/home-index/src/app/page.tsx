@@ -1,9 +1,16 @@
+"use client";
+
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import FilterButtons from "./filter-buttons";
 import ProjectList from "./project-list";
 import { useState } from "react";
 import { uniq } from "lodash-es";
+
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
+
+import "@/styles/globals.css";
 
 interface ProjectInfo {
   value: string;
@@ -76,6 +83,8 @@ export default function Home() {
           </section>
         </article>
       </main>
+      <SpeedInsights />
+      <Analytics />
     </>
   );
 }
