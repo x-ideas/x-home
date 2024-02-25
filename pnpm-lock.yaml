@@ -34,7 +34,6 @@ importers:
 
   packages/home-index:
     specifiers:
-      '@next/font': 14.0.4
       '@prisma/client': 5.10.2
       '@tanstack/react-query': ^5.24.1
       '@types/lodash-es': ^4.17.12
@@ -56,7 +55,6 @@ importers:
       tailwindcss: ^3.3.0
       ts-node: ^10.9.2
     dependencies:
-      '@next/font': 14.0.4_next@14.0.4
       '@prisma/client': 5.10.2_prisma@5.10.2
       '@tanstack/react-query': 5.24.1_react@18.2.0
       '@types/node': 18.17.6
@@ -454,14 +452,6 @@ packages:
     dependencies:
       glob: 10.3.10
     dev: true
-
-  /@next/font/14.0.4_next@14.0.4:
-    resolution: {integrity: sha512-anSlBJxaSlJ2S1mhfN/zddg8RsWvUCS6vMn9Sqjem3EukD6Z44lsj1lwXFdifUgwsJvw5Uf8MKupksAfRmDbeQ==}
-    peerDependencies:
-      next: '*'
-    dependencies:
-      next: 14.0.4_biqbaboplfbrettd7655fr4n2y
-    dev: false
 
   /@next/swc-darwin-arm64/14.0.4:
     resolution: {integrity: sha512-mF05E/5uPthWzyYDyptcwHptucf/jj09i2SXBPwNzbgBNc+XnwzrL0U6BmPjQeOL+FiB+iG1gwBeq7mlDjSRPg==}
