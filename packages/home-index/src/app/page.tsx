@@ -20,17 +20,17 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [projects] = useState<ProjectInfo[]>([
     {
-      value: "orizon",
+      value: "orizon-1",
       name: "Orizon",
       category: "web development",
     },
     {
-      value: "orizon",
+      value: "orizon-2",
       name: "Orizon",
       category: "web design",
     },
     {
-      value: "orizon",
+      value: "orizon-3",
       name: "Orizon",
       category: "applications",
     },
@@ -80,6 +80,7 @@ export default function Home() {
           </section>
         </article>
       </main>
+      {/* <Analytics /> */}
     </>
   );
 }
