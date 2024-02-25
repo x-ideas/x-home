@@ -7,9 +7,6 @@ import ProjectList from "./project-list";
 import { useState } from "react";
 import { uniq } from "lodash-es";
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
-
 import "@/styles/globals.css";
 
 interface ProjectInfo {
@@ -83,8 +80,6 @@ export default function Home() {
           </section>
         </article>
       </main>
-      <SpeedInsights />
-      <Analytics />
     </>
   );
 }
