@@ -6,37 +6,20 @@ import FilterButtons from "./filter-buttons";
 import ProjectList from "./project-list";
 import { useState } from "react";
 import { uniq } from "lodash-es";
+import { useQuery } from "@tanstack/react-query";
 
 import "@/styles/globals.css";
-
-interface ProjectInfo {
-  value: string;
-  name: string;
-  /** 类别 */
-  category: string;
-}
+import { HomeAPI } from "@xxx/services-api";
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
-  const [projects] = useState<ProjectInfo[]>([
-    {
-      value: "orizon-1",
-      name: "Orizon",
-      category: "web development",
-    },
-    {
-      value: "orizon-2",
-      name: "Orizon",
-      category: "web design",
-    },
-    {
-      value: "orizon-3",
-      name: "Orizon",
-      category: "applications",
-    },
-  ]);
 
-  const categories = Object.values(projects).map((proj) => proj.category);
+  const { data: projects } = useQuery({
+    queryKey: ["projects"],
+    queryFn: HomeAPI.getProjects,
+  });
+
+  const categories = Object.values(projects || []).map((proj) => proj.tag);
   categories.unshift("All");
   const allCategories = uniq(categories);
 
@@ -69,7 +52,13 @@ export default function Home() {
             ></FilterButtons>
 
             <ProjectList
-              allOptions={projects}
+              allOptions={(projects || []).map((item) => {
+                return {
+                  value: item.id,
+                  name: item.name,
+                  category: item.tag,
+                };
+              })}
               filter={(opt) => {
                 if (selectedCategory === "All") {
                   return true;

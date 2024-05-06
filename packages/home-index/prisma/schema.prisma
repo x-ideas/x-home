@@ -27,6 +27,7 @@ model Projects {
   deleted     Boolean       @default(false)
   link        String?       @db.VarChar(255)
   preview     String?       @db.VarChar(255)
+  tag         String?       @db.VarChar(255)
   ProjectTags ProjectTags[]
 }
 
