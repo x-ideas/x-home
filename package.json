@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "home page",
   "main": "index.js",
-  "engines": {},
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9"
+  },
   "scripts": {
     "test": "pnpm --filter @xxx-home/index... test",
     "prettier:fix": "prettier --write .",
