@@ -11,7 +11,7 @@ export interface ProjectInfo {
 }
 
 export async function getProjects(): Promise<ProjectInfo[]> {
-  return fetch(`${process.env.NEXT_PUBLIC_REQUEST_BASE_URL}/api/projects`).then(
+  return fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/projects`).then(
     async (res) => {
       const result = (await res.json()) as IApiResponse<ProjectInfo[]>;
       return result.data;
