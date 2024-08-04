@@ -16,6 +16,7 @@ jobs:
           version: latest
 
       - name: Start Supabase local development setup
+        working-directory: packages/home-index
         run: supabase db start
 
       # - name: Verify generated types are checked in
