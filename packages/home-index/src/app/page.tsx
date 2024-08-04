@@ -5,7 +5,6 @@ import styles from "@/styles/Home.module.css";
 import FilterButtons from "./filter-buttons";
 import ProjectList from "./project-list";
 import { useState } from "react";
-import { uniq } from "lodash-es";
 import { useQuery } from "@tanstack/react-query";
 
 import "@/styles/globals.css";
@@ -19,9 +18,9 @@ export default function Home() {
     queryFn: HomeAPI.getProjects,
   });
 
-  const categories = Object.values(projects || []).map((proj) => proj.tag);
-  categories.unshift("All");
-  const allCategories = uniq(categories);
+  // const categories = Object.values(projects || []).map((proj) => proj.tag);
+  // categories.unshift("All");
+  // const allCategories = uniq(categories);
 
   return (
     <>
@@ -39,11 +38,11 @@ export default function Home() {
 
           <section className="projects">
             <FilterButtons
-              value={selectedCategory}
-              options={allCategories.map((category) => {
+              // value={selectedCategory}
+              options={projects?.map((pro) => {
                 return {
-                  value: category,
-                  name: category,
+                  value: pro.id,
+                  name: pro.name,
                 };
               })}
               onChange={(newValue) => {
