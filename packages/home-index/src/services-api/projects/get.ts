@@ -10,6 +10,9 @@ export interface ProjectInfo {
   tag: string;
 }
 
+/**
+ * 查询项目列表
+ */
 export async function getProjects(): Promise<ProjectInfo[]> {
   return fetch(`/api/projects`).then(async (res) => {
     const result = (await res.json()) as IApiResponse<ProjectInfo[]>;

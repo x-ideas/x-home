@@ -7,7 +7,7 @@ interface OptionInfo<T extends string | number> {
 }
 
 interface FilterButtonsProps<T extends string | number> {
-  options: OptionInfo<T>[];
+  options?: OptionInfo<T>[];
 
   defaultValue?: T;
   value?: T;
