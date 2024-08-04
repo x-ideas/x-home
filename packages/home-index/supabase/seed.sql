@@ -1,0 +1,1 @@
+-- in supabase/seed.sql
