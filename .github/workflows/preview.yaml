@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - develop
+    paths:
+      - "packages/home-index/**"
   workflow_dispatch:
 
 jobs:
@@ -22,5 +24,10 @@ jobs:
         with:
           version: latest
 
-      - run: supabase link --project-ref $SUPABASE_PROJECT_ID
-      - run: supabase db push
+      - name: supbase link
+        working-directory: packages/home-index
+        run: supabase link --project-ref $SUPABASE_PROJECT_ID
+
+      - name: supbase db push
+        working-directory: packages/home-index
+        run: supabase db push
