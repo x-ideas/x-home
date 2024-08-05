@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - develop
-    paths:
-      - "packages/home-index/**"
   workflow_dispatch:
 
 jobs:
