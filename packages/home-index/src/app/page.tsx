@@ -2,22 +2,23 @@
 
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-import FilterButtons from "./filter-buttons";
+// import FilterButtons from "./filter-buttons";
 import ProjectList from "./project-list";
-import { useState } from "react";
+// import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import "@/styles/globals.css";
 import { HomeAPI } from "@xxx/services-api";
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  // const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   const { data: projects } = useQuery({
     queryKey: ["projects"],
     queryFn: HomeAPI.getProjects,
   });
 
+  console.log("projects", projects);
   // const categories = Object.values(projects || []).map((proj) => proj.tag);
   // categories.unshift("All");
   // const allCategories = uniq(categories);
@@ -36,36 +37,15 @@ export default function Home() {
             <h2 className="h2 article-title">XXX</h2>
           </header>
 
-          <section className="projects">
-            <FilterButtons
-              // value={selectedCategory}
-              options={projects?.map((pro) => {
-                return {
-                  value: pro.id,
-                  name: pro.name,
-                };
-              })}
-              onChange={(newValue) => {
-                setSelectedCategory(newValue);
-              }}
-            ></FilterButtons>
-
-            <ProjectList
-              allOptions={(projects || []).map((item) => {
-                return {
-                  value: item.id,
-                  name: item.name,
-                  category: item.tag,
-                };
-              })}
-              filter={(opt) => {
-                if (selectedCategory === "All") {
-                  return true;
-                }
-                return opt.category === selectedCategory;
-              }}
-            ></ProjectList>
-          </section>
+          <ProjectList
+            allOptions={(projects || []).map((item) => {
+              return {
+                value: item.id,
+                name: item.name,
+                // category: item.tag,
+              };
+            })}
+          ></ProjectList>
         </article>
       </main>
     </>

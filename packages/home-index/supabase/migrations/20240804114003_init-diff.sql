@@ -1,77 +1,25 @@
-create type "public"."Visibility" as enum ('Public', 'Private');
-
-create sequence "public"."Projects_id_seq";
-
-create table "public"."projects" (
-    "id" integer not null default nextval('"Projects_id_seq"'::regclass),
-    "name" text not null,
-    "description" text,
-    "createdAt" timestamp with time zone not null default (now() AT TIME ZONE 'utc'::text),
-    "updatedAt" timestamp with time zone not null default (now() AT TIME ZONE 'utc'::text),
-    "status" bigint,
-    "url" text,
-    "remark" text,
-    "previewImgs" text[],
-    "visibility" "Visibility" default 'Private'::"Visibility"
+CREATE TYPE public.Visibility AS enum(
+    'Public',
+    'Private'
 );
 
+CREATE TABLE public.projects(
+    id integer NOT NULL DEFAULT nextval('Projects_id_seq'::regclass),
+    name text NOT NULL,
+    description text,
+    createdAt timestamp with time zone NOT NULL DEFAULT (now() AT TIME ZONE 'utc'::text),
+    updatedAt timestamp with time zone NOT NULL DEFAULT (now() AT TIME ZONE 'utc'::text),
+    status bigint,
+    url text,
+    remark text,
+    previewImgs text[],
+    visibility Visibility DEFAULT 'Private' ::Visibility
+);
 
-alter table "public"."projects" enable row level security;
+ALTER TABLE public.projects ENABLE ROW LEVEL SECURITY;
 
-alter sequence "public"."Projects_id_seq" owned by "public"."projects"."id";
-
-CREATE UNIQUE INDEX "Projects_pkey" ON public.projects USING btree (id);
-
-alter table "public"."projects" add constraint "Projects_pkey" PRIMARY KEY using index "Projects_pkey";
-
-grant delete on table "public"."projects" to "anon";
-
-grant insert on table "public"."projects" to "anon";
-
-grant references on table "public"."projects" to "anon";
-
-grant select on table "public"."projects" to "anon";
-
-grant trigger on table "public"."projects" to "anon";
-
-grant truncate on table "public"."projects" to "anon";
-
-grant update on table "public"."projects" to "anon";
-
-grant delete on table "public"."projects" to "authenticated";
-
-grant insert on table "public"."projects" to "authenticated";
-
-grant references on table "public"."projects" to "authenticated";
-
-grant select on table "public"."projects" to "authenticated";
-
-grant trigger on table "public"."projects" to "authenticated";
-
-grant truncate on table "public"."projects" to "authenticated";
-
-grant update on table "public"."projects" to "authenticated";
-
-grant delete on table "public"."projects" to "service_role";
-
-grant insert on table "public"."projects" to "service_role";
-
-grant references on table "public"."projects" to "service_role";
-
-grant select on table "public"."projects" to "service_role";
-
-grant trigger on table "public"."projects" to "service_role";
-
-grant truncate on table "public"."projects" to "service_role";
-
-grant update on table "public"."projects" to "service_role";
-
-create policy "Enable read access for all users"
-on "public"."projects"
-as permissive
-for select
-to public
-using (true);
-
-
+-- 所有用户（包括anno)都可以查看
+CREATE POLICY "Public can view projects" ON public.projects
+    FOR SELECT
+        USING (visibility = 'Public'::Visibility);
 

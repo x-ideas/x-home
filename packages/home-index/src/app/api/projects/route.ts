@@ -9,11 +9,11 @@ import { supabase } from "../client";
 export async function GET(_request: NextRequest) {
   console.log(
     "获取projects",
-    process.env.SUPABASE_REST_API_URL,
-    process.env.SUPABASE_ANON_KEY,
+    process.env.NEXT_PUBLIC_SUPABASE_REST_API_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
   );
 
-  const res = await supabase.from("projects").select("*");
+  const res = await supabase.from("projects").select();
 
   return NextResponse.json(res);
 }
