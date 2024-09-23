@@ -20,6 +20,7 @@
     ],
     "paths": {
       "@xxx/services-api": ["./src/services-api/index.ts"],
+      "@xxx-utils/*": ["./src/utils/*"],
       "@/*": ["./src/*"]
     }
   },

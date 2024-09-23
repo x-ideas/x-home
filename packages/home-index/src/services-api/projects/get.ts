@@ -1,19 +1,17 @@
 // import { createClient } from "@supabase/supabase-js";
-import { supabase } from "../client.ts";
+import { createClient } from "@xxx-utils/supabase/client";
 
 export interface ProjectInfo {
   id: number;
   name: string;
   description: string;
-  // published: boolean;
-  // deleted: boolean;
 }
 
 /**
  * 查询项目列表
  */
 export async function getProjects(): Promise<ProjectInfo[]> {
-  return supabase
+  return createClient()
     .from("projects")
     .select()
     .then((res) => {
