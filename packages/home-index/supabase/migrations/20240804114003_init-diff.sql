@@ -22,7 +22,7 @@ CREATE POLICY "Public can view projects" ON public.projects
     FOR SELECT
         USING (visibility = 'Public'::Visibility);
 
-GRANT SELECT ON SCHEMA "public" TO anon;
+GRANT SELECT ON projects TO anon;
 
-GRANT SELECT ON SCHEMA "public" TO authenticated;
+GRANT SELECT ON projects TO authenticated;
 
