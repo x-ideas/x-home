@@ -26,6 +26,10 @@ jobs:
       - name: supbase link
         working-directory: packages/home-index
         run: supabase link --project-ref $SUPABASE_PROJECT_ID
+      
+      - name: reset linked project(in development)
+        working-directory: packages/home-index
+        run: supabase db reset --linked
 
       - name: supbase db push
         working-directory: packages/home-index
