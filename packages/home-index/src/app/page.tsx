@@ -40,7 +40,7 @@ export default function Home() {
           <ProjectList
             allOptions={(projects || []).map((item) => {
               return {
-                value: item.id,
+                value: item.id + "",
                 name: item.name,
                 // category: item.tag,
               };
