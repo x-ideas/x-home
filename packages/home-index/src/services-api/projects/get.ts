@@ -5,6 +5,10 @@ export interface ProjectInfo {
   id: number;
   name: string;
   description: string;
+  /** 链接地址 */
+  url?: string;
+  /** 预览图片 */
+  previewImgs?: string[];
 }
 
 /**
