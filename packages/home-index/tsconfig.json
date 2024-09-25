@@ -22,7 +22,8 @@
       "@xxx/services-api": ["./src/services-api/index.ts"],
       "@xxx-utils/*": ["./src/utils/*"],
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["@serwist/next/typings"]
   },
   "include": [
     "next-env.d.ts",
@@ -31,7 +32,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "public"],
   "ts-node": {
     "esm": true
   }
