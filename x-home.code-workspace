@@ -2,15 +2,19 @@
   "folders": [
     {
       "name": "✨ x-home",
-      "path": "."
+      "path": ".",
+    },
+    {
+      "name": "🚀 x-home-manage",
+      "path": "packages/frontend/x-home-manage",
     },
     {
       "name": "📦 @xxx-home/index",
-      "path": "packages/home-index"
-    }
+      "path": "packages/home-index",
+    },
   ],
   "settings": {
     "eslint.codeActionsOnSave.mode": "problems",
-    "editor.formatOnSave": true
-  }
+    "editor.formatOnSave": true,
+  },
 }
