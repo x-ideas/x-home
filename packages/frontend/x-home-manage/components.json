@@ -1,16 +1,14 @@
 {
-  "$schema": "https://shadcn-solid.com/schema.json",
+  "$schema": "https://shadcn-svelte.com/schema.json",
+  "style": "default",
   "tailwind": {
-    "config": "tailwind.config.cjs",
-    "css": {
-      "path": "src/index.css",
-      "variable": true
-    },
-    "color": "slate",
-    "prefix": ""
+    "config": "tailwind.config.ts",
+    "css": "src/app-style.css",
+    "baseColor": "slate"
   },
-  "alias": {
-    "component": "@/components",
-    "cn": "@/libs/cn"
-  }
+  "aliases": {
+    "components": "$lib/components",
+    "utils": "$lib/utils"
+  },
+  "typescript": true
 }
