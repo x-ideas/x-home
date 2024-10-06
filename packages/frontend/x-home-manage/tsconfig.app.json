@@ -12,7 +12,6 @@
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
 
@@ -21,6 +20,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "composite": true,
 
     "baseUrl": "./",
     "paths": {
