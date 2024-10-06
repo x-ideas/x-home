@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Output
+.output
+.vercel
+/.svelte-kit
+/build
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,3 +28,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
