@@ -10,7 +10,7 @@
     },
     {
       "name": "📦 @xxx-home/index",
-      "path": "packages/home-index",
+      "path": "packages/frontend/home-index",
     },
   ],
   "settings": {
