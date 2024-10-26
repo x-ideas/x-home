@@ -6,8 +6,9 @@ import { NextResponse } from "next/server";
  */
 export async function GET(
   _request: NextRequest,
-  { params }: { params: { id: string } },
+  props: { params: Promise<{ id: string }> },
 ) {
+  const params = await props.params;
   const id = params.id;
   return NextResponse.json({ message: `Project ${id}` });
 }
