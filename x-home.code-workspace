@@ -2,15 +2,21 @@
   "folders": [
     {
       "name": "✨ x-home",
-      "path": "."
+      "path": ".",
     },
     {
       "name": "📦 @xxx-home/index",
-      "path": "packages/home-index"
-    }
+      "path": "packages/frontend/home-index",
+    },
   ],
   "settings": {
     "eslint.codeActionsOnSave.mode": "problems",
-    "editor.formatOnSave": true
-  }
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+    },
+    "editor.formatOnSave": true,
+    "[svelte]": {
+      "editor.defaultFormatter": "svelte.svelte-vscode",
+    },
+  },
 }
