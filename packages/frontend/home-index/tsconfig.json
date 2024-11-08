@@ -23,7 +23,8 @@
       "@xxx-utils/*": ["./src/utils/*"],
       "@/*": ["./src/*"]
     },
-    "types": ["@serwist/next/typings"]
+    "types": ["@serwist/next/typings"],
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
