@@ -13,7 +13,6 @@ export default function Home() {
     queryFn: HomeAPI.getProjects,
   });
 
-  console.log("projects", projects);
   // const categories = Object.values(projects || []).map((proj) => proj.tag);
   // categories.unshift("All");
   // const allCategories = uniq(categories);
